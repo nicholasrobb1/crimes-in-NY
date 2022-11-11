@@ -23,7 +23,7 @@ for(let i = 0; i < prec.length; i++){
 
 for(let i = 0; i < counties.length; i++){
     countyTotal[counties[i]] = {"2017":{
-      "Agency":"",
+      // "Agency":"",
       "indexTotal":0,
       "violentTotal":0,
       "murder":0,
@@ -36,7 +36,7 @@ for(let i = 0; i < counties.length; i++){
       "motorVehicleTheft": 0
     },
     "2018":{
-      "Agency":"",
+      // "Agency":"",
       "indexTotal":0,
       "violentTotal":0,
       "murder":0,
@@ -49,7 +49,7 @@ for(let i = 0; i < counties.length; i++){
       "motorVehicleTheft": 0
     },
     "2019":{
-      "Agency":"",
+      // "Agency":"",
       "indexTotal":0,
       "violentTotal":0,
       "murder":0,
@@ -62,7 +62,7 @@ for(let i = 0; i < counties.length; i++){
       "motorVehicleTheft": 0
     },
     "2020":{
-      "Agency":"",
+      // "Agency":"",
       "indexTotal":0,
       "violentTotal":0,
       "murder":0,
@@ -75,7 +75,7 @@ for(let i = 0; i < counties.length; i++){
       "motorVehicleTheft": 0
     },
     "2021":{
-      "Agency":"",
+      // "Agency":"",
       "indexTotal":0,
       "violentTotal":0,
       "murder":0,
@@ -88,7 +88,7 @@ for(let i = 0; i < counties.length; i++){
       "motorVehicleTheft": 0
     },
     "2022":{
-      "Agency":"",
+      // "Agency":"",
       "indexTotal":0,
       "violentTotal":0,
       "murder":0,
@@ -103,53 +103,36 @@ for(let i = 0; i < counties.length; i++){
   }
 }
 
-for(let i = 0; i < prec.length; i++){
+for(let i = 1; i < prec.length-1; i++){
   let county = prec[i].split(',');
 
-  let year = countyTotal[county[0]].county[crimeDict["year"]];
-
-  year.Agency += county[crimeDict["Agency"]];
-  year.indexTotal += county[crimeDict["indexTotal"]];
-  year.violentTotal += county[crimeDict["violentTotal"]];
-  year.murder += county[crimeDict["murder"]];
-  year.rape += county[crimeDict["rape"]];
-  year.robbery += county[crimeDict["robbery"]];
-  year.aggravatedAssault += county[crimeDict["aggravatedAssault"]];
-  year.propertyTotal += county[crimeDict["propertyTotal"]];
-  year.burglary += county[crimeDict["burglary"]];
-  year.larceny += county[crimeDict["larceny"]];
-  year.motorVehicleTheft += county[crimeDict["motorVehicleTheft"]];
+  console.log(county);
+  console.log("second value = " + county[2])
+  console.log("i = " + i);
 
 
-  countyTotal[county[0]].county[crimeDict["year"]] = year;
+  let year = countyTotal[county[0]][county[2]];
+
+  // year.Agency += county[crimeDict["Agency"]];
+  year.indexTotal = parseInt(year.indexTotal)+ parseInt(county[crimeDict["indexTotal"]]);
+  year.violentTotal = parseInt(year.violentTotal)+ parseInt(county[crimeDict["violentTotal"]]);
+  year.murder = parseInt(year.murder)+ parseInt(county[crimeDict["murder"]]);
+  year.rape = parseInt(year.rape)+ parseInt(county[crimeDict["rape"]]);
+  year.robbery = parseInt(year.robbery)+ parseInt(county[crimeDict["robbery"]]);
+  year.aggravatedAssault = parseInt(year.aggravatedAssault)+ parseInt(county[crimeDict["aggravatedAssault"]]);
+  year.propertyTotal = parseInt(year.propertyTotal)+ parseInt(county[crimeDict["propertyTotal"]]);
+  year.burglary = parseInt(year.burglary)+ parseInt(county[crimeDict["burglary"]]);
+  year.larceny = parseInt(year.larceny)+ parseInt(county[crimeDict["larceny"]]);
+  year.motorVehicleTheft = parseInt(year.motorVehicleTheft)+ parseInt(county[crimeDict["motorVehicleTheft"]]);
+
+
+
+  countyTotal[county[0]][county[2]] = year;
 
 }
-fs.writeFileSync('countyCrime.json', JSON.stringify(countyTotal), 'utf8');
 
-// let characters = {};
-//
-// let peeps_csv = fs.readFileSync('Characters.csv', 'utf8');
-//
-// let peeps = peeps_csv.split("\n");
-//
-// peeps.forEach(function(peep) {
-//   let character_info = peep.split(';');
-//
-//   let character_name = character_info[1];
-//
-//   if(character_name!="Name"){
-//     let characterStats = {};
-//     characterStats['gender'] = character_info[2];
-//     characterStats['house'] = character_info[4];
-//     characterStats['species'] = character_info[7];
-//     if (character_info[12])
-//       characterStats['skills'] = character_info[12].split('|');
-//     else {
-//       characterStats['skills'] = [];
-//     }
-//
-//     characters[character_name]=characterStats;
-//   }
-// });
-//
-// fs.writeFileSync('potter.json', JSON.stringify(characters), 'utf8');
+console.log(countyTotal);
+console.log(JSON.stringify(countyTotal))
+
+
+fs.writeFileSync('countyCrime.json', JSON.stringify(countyTotal), 'utf8');
