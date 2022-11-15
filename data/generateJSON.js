@@ -87,19 +87,6 @@ for(let i = 0; i < counties.length; i++){
       "larceny":0,
       "motorVehicleTheft": 0
     },
-    "2022":{
-      // "Agency":"",
-      "indexTotal":0,
-      "violentTotal":0,
-      "murder":0,
-      "rape":0,
-      "robbery":0,
-      "aggravatedAssault":0,
-      "propertyTotal":0,
-      "burglary":0,
-      "larceny":0,
-      "motorVehicleTheft": 0
-    }
   }
 }
 
@@ -110,25 +97,23 @@ for(let i = 1; i < prec.length-1; i++){
   console.log("second value = " + county[2])
   console.log("i = " + i);
 
-
-  let year = countyTotal[county[0]][county[2]];
+  if(county[1] == "County Total"){
+    let year = countyTotal[county[0]][county[2]];
 
   // year.Agency += county[crimeDict["Agency"]];
-  year.indexTotal = parseInt(year.indexTotal)+ parseInt(county[crimeDict["indexTotal"]]);
-  year.violentTotal = parseInt(year.violentTotal)+ parseInt(county[crimeDict["violentTotal"]]);
-  year.murder = parseInt(year.murder)+ parseInt(county[crimeDict["murder"]]);
-  year.rape = parseInt(year.rape)+ parseInt(county[crimeDict["rape"]]);
-  year.robbery = parseInt(year.robbery)+ parseInt(county[crimeDict["robbery"]]);
-  year.aggravatedAssault = parseInt(year.aggravatedAssault)+ parseInt(county[crimeDict["aggravatedAssault"]]);
-  year.propertyTotal = parseInt(year.propertyTotal)+ parseInt(county[crimeDict["propertyTotal"]]);
-  year.burglary = parseInt(year.burglary)+ parseInt(county[crimeDict["burglary"]]);
-  year.larceny = parseInt(year.larceny)+ parseInt(county[crimeDict["larceny"]]);
-  year.motorVehicleTheft = parseInt(year.motorVehicleTheft)+ parseInt(county[crimeDict["motorVehicleTheft"]]);
+    year.indexTotal = parseInt(year.indexTotal)+ parseInt(county[crimeDict["indexTotal"]]);
+    year.violentTotal = parseInt(year.violentTotal)+ parseInt(county[crimeDict["violentTotal"]]);
+    year.murder = parseInt(year.murder)+ parseInt(county[crimeDict["murder"]]);
+    year.rape = parseInt(year.rape)+ parseInt(county[crimeDict["rape"]]);
+    year.robbery = parseInt(year.robbery)+ parseInt(county[crimeDict["robbery"]]);
+    year.aggravatedAssault = parseInt(year.aggravatedAssault)+ parseInt(county[crimeDict["aggravatedAssault"]]);
+    year.propertyTotal = parseInt(year.propertyTotal)+ parseInt(county[crimeDict["propertyTotal"]]);
+    year.burglary = parseInt(year.burglary)+ parseInt(county[crimeDict["burglary"]]);
+    year.larceny = parseInt(year.larceny)+ parseInt(county[crimeDict["larceny"]]);
+    year.motorVehicleTheft = parseInt(year.motorVehicleTheft)+ parseInt(county[crimeDict["motorVehicleTheft"]]);
 
-
-
-  countyTotal[county[0]][county[2]] = year;
-
+    countyTotal[county[0]][county[2]] = year;
+  }
 }
 
 console.log(countyTotal);
