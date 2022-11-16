@@ -1,4 +1,4 @@
-## Harry Potter data from: <https://www.kaggle.com/gulsahdemiryurek/harry-potter-dataset>
+## Crime rates in New York by County
 
 ## `npm install`
 
