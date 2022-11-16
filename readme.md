@@ -1,4 +1,4 @@
-## Crime rates in New York by County
+## Crime rates in New York by county
 
 ## `npm install`
 
