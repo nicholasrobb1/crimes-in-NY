@@ -93,9 +93,9 @@ for(let i = 0; i < counties.length; i++){
 for(let i = 1; i < prec.length-1; i++){
   let county = prec[i].split(',');
 
-  console.log(county);
-  console.log("second value = " + county[2])
-  console.log("i = " + i);
+  // console.log(county);
+  // console.log("second value = " + county[2])
+  // console.log("i = " + i);
 
   if(county[1] == "County Total"){
     let year = countyTotal[county[0]][county[2]];

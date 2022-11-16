@@ -4,7 +4,7 @@ const ejs = require('ejs');
 let character_info = JSON.parse(fs.readFileSync('../data/potter.json', 'utf8'));
 let index_template = fs.readFileSync('views/index.ejs', 'utf8');
 let character_template = fs.readFileSync('views/character.ejs', 'utf8');
-
+console.log("siteGenerator is called");
 /*
   1) Generate a web page for each character
   2) Keep track of the link for index.html
