@@ -1,15 +1,5 @@
 ## Harry Potter data from: <https://www.kaggle.com/gulsahdemiryurek/harry-potter-dataset>
 
-## `npm install fs`
+## `npm install`
 
-## `cd data`
-
-## `node generateJSON.js`
-
-## `cd ..`
-
-## `cd src`
-
-## `node siteGenerator.js`
-
-## `npm start`
+## `npm run build`
