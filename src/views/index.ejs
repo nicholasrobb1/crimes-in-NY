@@ -26,9 +26,9 @@
       <% for(county in data){ %>
       <tr>
         <td><a href="<%=data[county].link%>.html"><%= county %></a></td>
-        <td><%= data[county][2017].indexTotal %></td>
-        <td><%= data[county][i].violentTotal %></td>
-        <td><%= data[county][i].propertyTotal %></td>
+        <td><%= data[county]['indexTotal'] %></td>
+        <td><%= data[county]['violentTotal'] %></td>
+        <td><%= data[county]['propertyTotal'] %></td>
       </tr>
       <%}%>
     </table>
