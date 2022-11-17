@@ -15,21 +15,21 @@
   <header>
     <h1><%=name%></h1>
   </header>
-  <section id="charcter-stats">
-  <h2>Stats</h2>
+  <section id="county-stats">
+  <h2>Crime statistics in <%=name%> county</h2>
   <ul>
-    <li>Gender: <%=stats.gender%></li>
-    <li>House: <%=stats.house%></li>
-    <li>Species: <%=stats.species%></li>
-    <li>Skill:
-      <% if (stats.skills && stats.skills.length > 0){ %>
-      <ol>
-        <% stats.skills.forEach(function(skill){%>
-        <li> <%=skill%></li>
-        <%}) %>
-      </ol>
-      <%}%>
-    </li>
+
+    <!-- <li> indexTotal </li>
+    <li> violentTotal </li>
+    <li> murder </li>
+    <li> rape </li>
+    <li> robbery </li>
+    <li> aggravatedAssault </li>
+    <li> propertyTotal </li>
+    <li> burglary </li>
+    <li> larceny </li>
+    <li> motorVehicleTheft </li> -->
+
   </ul>
   </section>
 
