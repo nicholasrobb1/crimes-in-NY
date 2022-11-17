@@ -15,7 +15,7 @@
   <header>
     <h1>Crimes by County</h1>
   </header>
-  <section id="charcter-table">
+  <section id="county-table">
     <table>
       <tr>
         <th>County</th>
@@ -23,12 +23,12 @@
         <th>Violent Total</th>
         <th>Property Total</th>
       </tr>
-      <% for(character in data){ %>
+      <% for(county in data){ %>
       <tr>
-        <td><a href="<%=data[character].link%>.html"><%= character %></a></td>
-        <td><%= data[character].indexTotal %></td>
-        <td><%= data[character].violentTotal %></td>
-        <td><%= data[character].propertyTotal %></td>
+        <td><a href="<%=data[county].link%>.html"><%= county %></a></td>
+        <td><%= data[county].indexTotal %></td>
+        <td><%= data[county].violentTotal %></td>
+        <td><%= data[county].propertyTotal %></td>
       </tr>
       <%}%>
     </table>

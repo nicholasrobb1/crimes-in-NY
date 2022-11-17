@@ -14,7 +14,7 @@ let counties = [];
 let countyTotal = {};
 
 
-for(let i = 0; i < prec.length; i++){
+for(let i = 1; i < prec.length; i++){
   let line = prec[i].split(',')
   if(counties.indexOf(line[0]) == -1){
     counties.push(line[0]);
