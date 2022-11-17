@@ -22,7 +22,8 @@ for(let i = 1; i < prec.length; i++){
 }
 
 for(let i = 0; i < counties.length; i++){
-    countyTotal[counties[i]] = {"2017":{
+    countyTotal[counties[i]] = {
+    "2017":{
       // "Agency":"",
       "indexTotal":0,
       "violentTotal":0,
@@ -87,6 +88,9 @@ for(let i = 0; i < counties.length; i++){
       "larceny":0,
       "motorVehicleTheft": 0
     },
+    "indexTotal":0,
+    "violentTotal":0,
+    "propertyTotal":0
   }
 }
 
@@ -115,6 +119,23 @@ for(let i = 1; i < prec.length-1; i++){
     countyTotal[county[0]][county[2]] = year;
   }
 }
+
+for(county in countyTotal){
+  let iT = 0;
+  let vT = 0;
+  let pT = 0;
+    for(let i = 2017; i < 2022; i++){
+    iT += countyTotal[county][i.toString()].indexTotal
+    vT += countyTotal[county][i.toString()].violentTotal
+    pT += countyTotal[county][i.toString()].propertyTotal
+  }
+  countyTotal[county].indexTotal = iT;
+  countyTotal[county].violentTotal = vT;
+  countyTotal[county].propertyTotal = pT;
+
+}
+
+
 
 console.log(countyTotal);
 console.log(JSON.stringify(countyTotal))
