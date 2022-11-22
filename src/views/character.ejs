@@ -20,16 +20,16 @@
   <table>
     <thead>
       <th> Year </th>
-      <th> indexTotal </th>
-      <th> violentTotal </th>
-      <th> murder </th>
-      <th> rape </th>
-      <th> robbery </th>
-      <th> aggravatedAssault </th>
-      <th> propertyTotal </th>
-      <th> burglary </th>
-      <th> larceny </th>
-      <th> motorVehicleTheft </th>
+      <th> Index Total </th>
+      <th> Violent Total </th>
+      <th> Murder </th>
+      <th> Rape </th>
+      <th> Robbery </th>
+      <th> Aggravated Assault </th>
+      <th> Property Total </th>
+      <th> Burglary </th>
+      <th> Larceny </th>
+      <th> Motor Vehicle Theft </th>
     </thead>
     <tbody>
       <% for(let i = 2017; i < 2022; i++) {%>
@@ -44,7 +44,7 @@
         <td><%= stats[i]["propertyTotal"] %></td>
         <td><%= stats[i]["burglary"] %></td>
         <td><%= stats[i]["larceny"] %></td>
-        <td><%= stats[i]["motorVehicletheft"] %></td>
+        <td><%= stats[i]["motorVehicleTheft"] %></td>
       </tr>
       <%} %>
     </tbody>
