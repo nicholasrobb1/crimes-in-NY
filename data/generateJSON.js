@@ -137,8 +137,8 @@ for(county in countyTotal){
 
 
 
-console.log(countyTotal);
-console.log(JSON.stringify(countyTotal))
+// console.log(countyTotal);
+// console.log(JSON.stringify(countyTotal))
 
 
 fs.writeFileSync('countyCrime.json', JSON.stringify(countyTotal), 'utf8');
