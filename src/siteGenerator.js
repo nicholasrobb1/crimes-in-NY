@@ -9,6 +9,7 @@ let county_template = fs.readFileSync('views/character.ejs', 'utf8');
   1) Generate a web page for each character
   2) Keep track of the link for index.html
 */
+
 for (county in county_info){
   let county_html = ejs.render(county_template, {
     filename: __dirname + '/views/character.ejs',

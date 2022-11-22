@@ -17,8 +17,42 @@
   </header>
   <section id="county-stats">
   <h2>Crime statistics in <%=name%> county</h2>
-  <ul>
+  <table>
+    <thead>
+      <th> Year </th>
+      <th> indexTotal </th>
+      <th> violentTotal </th>
+      <th> murder </th>
+      <th> rape </th>
+      <th> robbery </th>
+      <th> aggravatedAssault </th>
+      <th> propertyTotal </th>
+      <th> burglary </th>
+      <th> larceny </th>
+      <th> motorVehicleTheft </th>
+    </thead>
+    <tbody>
+      <% for(let i = 2017; i < 2022; i++) {%>
+      <tr>
+        <td><%=i%></td>
+        <td><%= stats[i]["indexTotal"]%></td>
+        <td><%= stats[i]["violentTotal"] %></td>
+        <td><%= stats[i]["murder"] %></td>
+        <td><%= stats[i]["rape"] %></td>
+        <td><%= stats[i]["robbery"] %></td>
+        <td><%= stats[i]["aggravatedAssault"] %></td>
+        <td><%= stats[i]["propertyTotal"] %></td>
+        <td><%= stats[i]["burglary"] %></td>
+        <td><%= stats[i]["larceny"] %></td>
+        <td><%= stats[i]["motorVehicletheft"] %></td>
+      </tr>
+      <%} %>
+    </tbody>
+  </table>
 
+
+
+  <ul>
     <!-- <li> indexTotal </li>
     <li> violentTotal </li>
     <li> murder </li>
@@ -29,7 +63,6 @@
     <li> burglary </li>
     <li> larceny </li>
     <li> motorVehicleTheft </li> -->
-
   </ul>
   </section>
 
