@@ -11,8 +11,10 @@ let county_template = fs.readFileSync('views/character.ejs', 'utf8');
 */
 
 for (county in county_info){
+  console.log("render character template");
   let county_html = ejs.render(county_template, {
     filename: __dirname + '/views/character.ejs',
+    data: county_info,
     stats: county_info[county],
     name: county
   });

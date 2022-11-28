@@ -6,12 +6,12 @@
   "dependencies": {
     "ejs": "^3.1.8",
     "express": "^4.18.2",
-    "fs": "^0.0.1-security"
+    "fs": "^0.0.1-security",
+    "jshint": "^2.13.6"
   },
-  "devDependencies": {},
   "scripts": {
-    "prebuild":"node prebuild.js",
-    "build":"cd data && node generateJSON.js && cd .. && cd src && node siteGenerator.js",
+    "prebuild": "node prebuild.js",
+    "build": "cd data && node generateJSON.js && cd .. && cd src && node siteGenerator.js",
     "postbuild": "open http://localhost:3000 && node server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
