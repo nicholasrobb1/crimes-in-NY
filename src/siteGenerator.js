@@ -14,7 +14,7 @@ let header_template = fs.readFileSync('views/global/header.ejs', 'utf8');
   for (county in county_info){
     countyName.push(county);
   }
-  console.log(countyName)
+  // console.log(countyName)
 
   // let headerEJS = ejs.render(header_template, {
   //   data:countyName

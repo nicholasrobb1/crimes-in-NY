@@ -10,7 +10,9 @@
         <button class="dropbtn">Counties</button>
             <div class="dropdown-content">
             <% for(let i = 0; i < names.length; i++){ %>
-              <a href=<%=names[i].toLowerCase() %>.html><%=names[i]%></a>
+              <ol>
+              <li><a href=<%=names[i].toLowerCase()%>".html"><%=names[i]%></a></li>
+              </ol>
             <% } %>
           </div>
         </div>
