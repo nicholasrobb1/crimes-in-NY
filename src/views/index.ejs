@@ -17,6 +17,14 @@
   <script src="/path/to/c3.min.js"></script>
   <script src="https://cdn.plot.ly/plotly-2.16.1.min.js"></script>
   <script src="plotly-2.16.1.min.js"></script>
+
+  <script src="https://api.tiles.mapbox.com/mapbox-gl-js/v1.2.0/mapbox-gl.js"></script>
+<link
+  href="https://api.tiles.mapbox.com/mapbox-gl-js/v1.2.0/mapbox-gl.css"
+  rel="stylesheet"
+/>
+<script src="./citysdk.js"></script>
+
 </head>
 
 <body>
@@ -43,12 +51,32 @@
   </section>
 
   <section>
-    <div id="chart"></div>
+    <!-- <style>
+      body {
+        margin: 0;
+        padding: 0;
+      }
+      #map {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 100%;
+      }
+    </style>
+    <div id="map"></div>
 <script>
 
-//plotly map here
+mapboxgl.accessToken = "<your access token here>";
+var map = new mapboxgl.Map({
+  container: "map",
+  style: "mapbox://styles/mapbox/streets-v11",
+  center: { lat: 37.0902, lng: -95.7129 },
+  zoom: 3
+});
 
-</script>
+
+
+</script> -->
   </section>
 
   <%- include ('global/footer');  %>
