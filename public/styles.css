@@ -6,64 +6,54 @@ body {
   background-color: lightgray;
 }
 
-
-.nav {
-  overflow:hidden;
-}
-
-
-.dropdown {
-  float: left;
-  overflow: hidden;
-}
-
-.dropdown .dropbtn {
-  font-size: 16px;
-  border: none;
-  outline: none;
-  color: white;
-  padding: 14px 16px;
-  background-color: inherit;
-  font-family: inherit;
-  margin: 0;
-}
-
-.nav  a {
-  float: left;
-  font-size: 16px;
-  color: white;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-}
-
-
 .nav a:hover, .dropdown:hover .dropbtn {
   background-color: #B3B3B3;
 }
-
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #f9f9f9;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;
+.dropdown-menu {
+  margin: 4rem auto;
 }
 
-.dropdown-content a {
-  float: left;
-  color: black;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: none;
-  text-align: left;
+.dropdown-item-danger {
+  color: var(--bs-red);
+}
+.dropdown-item-danger:hover,
+.dropdown-item-danger:focus {
+  color: #fff;
+  background-color: var(--bs-red);
+}
+.dropdown-item-danger.active {
+  background-color: var(--bs-red);
+}
+
+.btn-hover-light {
+  background-color: var(--bs-white);
+}
+.btn-hover-light:hover .dropdown-item{
+  display:block
+}
+.btn-hover-light:focus {
+  color: var(--bs-blue);
+  background-color: var(--bs-light);
+}
+
+.form-control-dark {
+  background-color: rgba(255, 255, 255, .05);
+  border-color: rgba(255, 255, 255, .15);
 }
 
 
-.dropdown:hover .dropdown-content {
-  display:block;
+.w-220px {
+  width: 220px;
 }
-.dropdown-content a:hover {
-  background-color: #f00;
+
+.w-280px {
+  width: 280px;
+}
+
+.w-340px {
+  width: 340px;
+}
+
+.w-600px {
+  width: 600px;
 }
