@@ -64,22 +64,45 @@
   <section>
     <div id="chart"></div>
     <script>
+
+    //let vt = ["Violent Total"];
+    let mur = ["Murder"];
+    let rap = ["Rape"];
+    let rob = ["Robbery"];
+    let aa = ["Aggravated Assault"];
+    //let pt = ["Property Total"];
+    let bur = ["Burglary"];
+    //let larc = ["Larceny"]; //not working for some reason
+    let mvt = ["Motor Vehicle Theft"];
+
+
+    <%for (let i = 2017; i <= 2021; i++){%>
+      //vt.push(<%=stats[i]["violentTotal"]%>);
+      mur.push(<%=stats[i]["murder"]%>);
+      rap.push(<%=stats[i]["rape"]%>);
+      rob.push(<%=stats[i]["robbery"]%>);
+      aa.push(<%=stats[i]["aggravatedAssault"]%>);
+      //pt.push(<%=stats[i]["propertyTotal"]%>);
+      bur.push(<%=stats[i]["burglary"]%>);
+      //larc.push(<%=stats[i]["larceny"]%>);
+      mvt.push(<%=stats[i]["motorVehicleTheft"]%>);
+    <%}%>
+
       var chart = c3.generate({
         bindto: '#chart',
         data: {
           x: 'x',
           columns: [
             ['x', 2017, 2018, 2019, 2020, 2021],
-            ["Violent Total", stats[2017]["violentTotal"], stats[2018]["violentTotal"], stats[2019]["violentTotal"], stats[2020]["violentTotal"], stats[2021]["violentTotal"]]
-            // figure out how to get stats in, might not be passing anything in
-            // ["Murder", ]
-            // ["Rape", ]
-            // ["Robbery", ]
-            // ["Aggravated Assault", ]
-            // ["Property Total", ]
-            // ["Burglary", ]
-            // ["Larceny", ]
-            // ["Motor Vehicle Theft", ]
+            //vt,
+            mur,
+            rap,
+            rob,
+            aa,
+            //pt,
+            bur,
+          //  larc,
+            mvt
           ]
         },
         axis: {
