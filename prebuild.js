@@ -3,6 +3,7 @@
   fs.rmSync('public', { recursive: true, force: true });
   fs.mkdirSync('public');
   fs.copyFileSync('./src/styles.css', './public/styles.css');
+  fs.copyFileSync('./src/views/counties.GeoJSON', './public/counties.GeoJSON');
   // fs.renameSync('./src/views/wireframe', './public/wireframe');
   fs.mkdirSync('public/wireframe');
 
