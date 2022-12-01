@@ -13,6 +13,7 @@ let header_template = fs.readFileSync('views/global/header.ejs', 'utf8');
   let countyName = [];
   for (county in county_info){
     countyName.push(county);
+    // countyName.push(getBetterFileName(county));
   }
   // console.log(countyName)
 
