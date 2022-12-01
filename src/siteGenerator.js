@@ -5,7 +5,7 @@ let county_info = JSON.parse(fs.readFileSync('../data/countyCrime.json', 'utf8')
 let index_template = fs.readFileSync('views/index.ejs', 'utf8');
 let county_template = fs.readFileSync('views/character.ejs', 'utf8');
 let header_template = fs.readFileSync('views/global/header.ejs', 'utf8');
-
+let about_template = fs.readFileSync('views/about.ejs', 'utf8');
 /*
   1) Generate a web page for each character
   2) Keep track of the link for index.html
@@ -47,6 +47,12 @@ let index_html = ejs.render(index_template, {
 });
 
 fs.writeFileSync('../public/index.html', index_html, 'utf8');
+
+let about_html = ejs.render( about_template, {
+  filename: __dirname+ '/views/about.ejs',
+  names:countyName
+})
+  fs.writeFileSync('../public/about.html', about_html, 'utf8');
 
 function getBetterFileName(countyName){
   let betterFileName = countyName.split(" ").join("_");

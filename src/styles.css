@@ -6,6 +6,19 @@ body {
   background-color: lightgray;
 }
 
+.float-container {
+    border: 3px solid #fff;
+    padding: 20px;
+}
+
+.float-child {
+    width: 50%;
+    float: left;
+    padding: 20px;
+    border: 2px solid red;
+}
+
+
 .nav a:hover, .dropdown:hover .dropbtn {
   background-color: #B3B3B3;
 }
