@@ -51,32 +51,35 @@
   </section>
 
   <section>
-    <!-- <style>
-      body {
-        margin: 0;
-        padding: 0;
-      }
-      #map {
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        width: 100%;
-      }
-    </style>
     <div id="map"></div>
 <script>
 
-mapboxgl.accessToken = "<your access token here>";
-var map = new mapboxgl.Map({
-  container: "map",
-  style: "mapbox://styles/mapbox/streets-v11",
-  center: { lat: 37.0902, lng: -95.7129 },
-  zoom: 3
-});
+let dataArr = [];
+
+<%for (county in data){%>
+  dataArr.push(<%=data[county]["indexTotal"]%>);
+<%}%>
 
 
+var data = [{
+  type: "choroplethmapbox",
+  locations: ["Hamilton County", "Chenango County", "Livingston County", "Schuyler County", "Schoharie County", "Rensselaer County", "Oneida County", "Wayne County", "Suffolk County", "Tioga County", "Rockland County", "Wyoming County", "Oswego County", "Orleans County", "Steuben County", "Washington County", "St. Lawrence County", "Warren County", "Westchester County",
+    "Tompkins County", "Otsego County", "Chautauqua County", "Seneca County", "Cayuga County", "Queens County", "Essex County", "Ulster County", "Sullivan County", "Chemung County", "New York County", "Monroe County", "Nassau County", "Onondaga County", "Columbia County", "Dutchess County", "Schenectady County", "Saratoga County", "Greene County", "Ontario County",
+    "Delaware County", "Allegany County", "Albany County", "Bronx County", "Broome County", "Clinton County", "Erie County", "Jefferson County", "Fulton County", "Madison County", "Kings County", "Genesee County", "Lewis County", "Franklin County", "Montgomery County", "Orange County", "Yates County", "Cortland County", "Richmond County", "Cattaraugus County",
+    "Herkimer County", "Niagara County", "Putnam County"],
+  z: dataArr,
+  geojson: "https://raw.githubusercontent.com/codeforgermany/click_that_hood/150c05cd868307f9e184fd0f92654e3760640938/public/data/new-york-counties.geojson"
 
-</script> -->
+}];
+
+var layout = {mapbox: {center: {lon: -74, lat: 43}, zoom: 3.5},
+              width: 600, height:400};
+
+var config = {mapboxAccessToken: "pk.eyJ1Ijoibmlja3JvYmIiLCJhIjoiY2xiNGdxaXMxMDY0ODNvbWtob2s4eTljMSJ9.Rq3u5EkXTlspNVbucQIdcQ"};
+
+Plotly.newPlot('map', data, layout, config);
+
+</script>
   </section>
 
   <%- include ('global/footer');  %>
