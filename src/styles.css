@@ -6,6 +6,14 @@ body {
   background-color: lightgray;
 }
 
+.table-header {
+  padding: 5px;
+}
+
+.c3-title {
+font-size: 10.3em;
+}
+
 .float-container {
     border: 3px solid #fff;
     padding: 20px;
