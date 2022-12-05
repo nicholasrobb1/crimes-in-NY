@@ -21,11 +21,8 @@
   <script src="plotly-2.16.1.min.js"></script>
 
   <script src="https://api.tiles.mapbox.com/mapbox-gl-js/v1.2.0/mapbox-gl.js"></script>
-<link
-  href="https://api.tiles.mapbox.com/mapbox-gl-js/v1.2.0/mapbox-gl.css"
-  rel="stylesheet"
-/>
-<script src="./citysdk.js"></script>
+  <link href="https://api.tiles.mapbox.com/mapbox-gl-js/v1.2.0/mapbox-gl.css" rel="stylesheet" />
+  <script src="./citysdk.js"></script>
 
 </head>
 
@@ -53,28 +50,32 @@
   </section>
 
   <section>
-    <div id="map"></div>
+    <div id="map" style="width:100%; max-width:700px"></div>
 <script>
 
 let dataArr = [];
 
 <%for (county in data){%>
-  dataArr.push(<%=data[county]["indexTotal"]%>);
-<%}%>
+      dataArr.push(<%=data[county]["indexTotal"]%>);
+      <%}%>
+//console.log(dataArr);
 
 
 var data = [{
   type: "choroplethmapbox",
+  geojson: "counties.GeoJSON",
+  //geojson: "https://raw.githubusercontent.com/plotly/datasets/master/geojson-counties-fips.json",
   locations: ["Hamilton County", "Chenango County", "Livingston County", "Schuyler County", "Schoharie County", "Rensselaer County", "Oneida County", "Wayne County", "Suffolk County", "Tioga County", "Rockland County", "Wyoming County", "Oswego County", "Orleans County", "Steuben County", "Washington County", "St. Lawrence County", "Warren County", "Westchester County",
     "Tompkins County", "Otsego County", "Chautauqua County", "Seneca County", "Cayuga County", "Queens County", "Essex County", "Ulster County", "Sullivan County", "Chemung County", "New York County", "Monroe County", "Nassau County", "Onondaga County", "Columbia County", "Dutchess County", "Schenectady County", "Saratoga County", "Greene County", "Ontario County",
     "Delaware County", "Allegany County", "Albany County", "Bronx County", "Broome County", "Clinton County", "Erie County", "Jefferson County", "Fulton County", "Madison County", "Kings County", "Genesee County", "Lewis County", "Franklin County", "Montgomery County", "Orange County", "Yates County", "Cortland County", "Richmond County", "Cattaraugus County",
     "Herkimer County", "Niagara County", "Putnam County"],
   z: dataArr,
-  geojson: "counties.GeoJSON"
-
+  zmin: 0,
+  zmax: 200000,
+  colorbar: {y: 0, yanchor: "bottom", title: {text:"Crime rates in NY counties"}}
 }];
 
-var layout = {mapbox: {center: {lon: -74, lat: 43}, zoom: 3.5},
+var layout = {mapbox: {center: {lon: -76, lat: 42}, zoom: 4.6},
               width: 600, height:400};
 
 var config = {mapboxAccessToken: "pk.eyJ1Ijoibmlja3JvYmIiLCJhIjoiY2xiNGdxaXMxMDY0ODNvbWtob2s4eTljMSJ9.Rq3u5EkXTlspNVbucQIdcQ"};

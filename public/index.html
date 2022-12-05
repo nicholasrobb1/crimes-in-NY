@@ -135,8 +135,6 @@
           
             <li><a class="dropdown-item" href="Yates.html">Yates</a></li>
           
-            <li><a class="dropdown-item" href=".html"></a></li>
-          
         </ul>
       </div>
       <a href="about.html" class="nav-link px-2 text-white">About</a>
@@ -163,11 +161,8 @@
   <script src="plotly-2.16.1.min.js"></script>
 
   <script src="https://api.tiles.mapbox.com/mapbox-gl-js/v1.2.0/mapbox-gl.js"></script>
-<link
-  href="https://api.tiles.mapbox.com/mapbox-gl-js/v1.2.0/mapbox-gl.css"
-  rel="stylesheet"
-/>
-<script src="./citysdk.js"></script>
+  <link href="https://api.tiles.mapbox.com/mapbox-gl-js/v1.2.0/mapbox-gl.css" rel="stylesheet" />
+  <script src="./citysdk.js"></script>
 
 </head>
 
@@ -618,163 +613,158 @@
         <td>978</td>
       </tr>
       
-      <tr>
-        <td><a href=".html"></a></td>
-        <td>0</td>
-        <td>0</td>
-        <td>0</td>
-      </tr>
-      
     </table>
   </section>
 
   <section>
-    <div id="map"></div>
+    <div id="map" style="width:100%; max-width:700px"></div>
 <script>
 
 let dataArr = [];
 
 
-  dataArr.push(40462);
-
-  dataArr.push(2210);
-
-  dataArr.push(180645);
-
-  dataArr.push(25718);
-
-  dataArr.push(5146);
-
-  dataArr.push(6138);
-
-  dataArr.push(13743);
-
-  dataArr.push(7465);
-
-  dataArr.push(3606);
-
-  dataArr.push(5571);
-
-  dataArr.push(3897);
-
-  dataArr.push(4123);
-
-  dataArr.push(2586);
-
-  dataArr.push(18340);
-
-  dataArr.push(109372);
-
-  dataArr.push(1611);
-
-  dataArr.push(2947);
-
-  dataArr.push(4943);
-
-  dataArr.push(4792);
-
-  dataArr.push(2977);
-
-  dataArr.push(185);
-
-  dataArr.push(4537);
-
-  dataArr.push(10056);
-
-  dataArr.push(249021);
-
-  dataArr.push(911);
-
-  dataArr.push(3140);
-
-  dataArr.push(4636);
-
-  dataArr.push(82946);
-
-  dataArr.push(3776);
-
-  dataArr.push(65588);
-
-  dataArr.push(248053);
-
-  dataArr.push(22536);
-
-  dataArr.push(23302);
-
-  dataArr.push(49847);
-
-  dataArr.push(7519);
-
-  dataArr.push(27682);
-
-  dataArr.push(2681);
-
-  dataArr.push(9173);
-
-  dataArr.push(3311);
-
-  dataArr.push(2371);
-
-  dataArr.push(175254);
-
-  dataArr.push(15971);
-
-  dataArr.push(26383);
-
-  dataArr.push(14532);
-
-  dataArr.push(12443);
-
-  dataArr.push(20873);
-
-  dataArr.push(1473);
-
-  dataArr.push(295);
-
-  dataArr.push(2445);
-
-  dataArr.push(4896);
-
-  dataArr.push(6312);
-
-  dataArr.push(93889);
-
-  dataArr.push(5267);
-
-  dataArr.push(2098);
-
-  dataArr.push(9856);
-
-  dataArr.push(10543);
-
-  dataArr.push(4423);
-
-  dataArr.push(2039);
-
-  dataArr.push(6755);
-
-  dataArr.push(50613);
-
-  dataArr.push(1501);
-
-  dataArr.push(1094);
-
-  dataArr.push(0);
-
+      dataArr.push(40462);
+      
+      dataArr.push(2210);
+      
+      dataArr.push(180645);
+      
+      dataArr.push(25718);
+      
+      dataArr.push(5146);
+      
+      dataArr.push(6138);
+      
+      dataArr.push(13743);
+      
+      dataArr.push(7465);
+      
+      dataArr.push(3606);
+      
+      dataArr.push(5571);
+      
+      dataArr.push(3897);
+      
+      dataArr.push(4123);
+      
+      dataArr.push(2586);
+      
+      dataArr.push(18340);
+      
+      dataArr.push(109372);
+      
+      dataArr.push(1611);
+      
+      dataArr.push(2947);
+      
+      dataArr.push(4943);
+      
+      dataArr.push(4792);
+      
+      dataArr.push(2977);
+      
+      dataArr.push(185);
+      
+      dataArr.push(4537);
+      
+      dataArr.push(10056);
+      
+      dataArr.push(249021);
+      
+      dataArr.push(911);
+      
+      dataArr.push(3140);
+      
+      dataArr.push(4636);
+      
+      dataArr.push(82946);
+      
+      dataArr.push(3776);
+      
+      dataArr.push(65588);
+      
+      dataArr.push(248053);
+      
+      dataArr.push(22536);
+      
+      dataArr.push(23302);
+      
+      dataArr.push(49847);
+      
+      dataArr.push(7519);
+      
+      dataArr.push(27682);
+      
+      dataArr.push(2681);
+      
+      dataArr.push(9173);
+      
+      dataArr.push(3311);
+      
+      dataArr.push(2371);
+      
+      dataArr.push(175254);
+      
+      dataArr.push(15971);
+      
+      dataArr.push(26383);
+      
+      dataArr.push(14532);
+      
+      dataArr.push(12443);
+      
+      dataArr.push(20873);
+      
+      dataArr.push(1473);
+      
+      dataArr.push(295);
+      
+      dataArr.push(2445);
+      
+      dataArr.push(4896);
+      
+      dataArr.push(6312);
+      
+      dataArr.push(93889);
+      
+      dataArr.push(5267);
+      
+      dataArr.push(2098);
+      
+      dataArr.push(9856);
+      
+      dataArr.push(10543);
+      
+      dataArr.push(4423);
+      
+      dataArr.push(2039);
+      
+      dataArr.push(6755);
+      
+      dataArr.push(50613);
+      
+      dataArr.push(1501);
+      
+      dataArr.push(1094);
+      
+//console.log(dataArr);
 
 
 var data = [{
   type: "choroplethmapbox",
+  geojson: "counties.GeoJSON",
+  //geojson: "https://raw.githubusercontent.com/plotly/datasets/master/geojson-counties-fips.json",
   locations: ["Hamilton County", "Chenango County", "Livingston County", "Schuyler County", "Schoharie County", "Rensselaer County", "Oneida County", "Wayne County", "Suffolk County", "Tioga County", "Rockland County", "Wyoming County", "Oswego County", "Orleans County", "Steuben County", "Washington County", "St. Lawrence County", "Warren County", "Westchester County",
     "Tompkins County", "Otsego County", "Chautauqua County", "Seneca County", "Cayuga County", "Queens County", "Essex County", "Ulster County", "Sullivan County", "Chemung County", "New York County", "Monroe County", "Nassau County", "Onondaga County", "Columbia County", "Dutchess County", "Schenectady County", "Saratoga County", "Greene County", "Ontario County",
     "Delaware County", "Allegany County", "Albany County", "Bronx County", "Broome County", "Clinton County", "Erie County", "Jefferson County", "Fulton County", "Madison County", "Kings County", "Genesee County", "Lewis County", "Franklin County", "Montgomery County", "Orange County", "Yates County", "Cortland County", "Richmond County", "Cattaraugus County",
     "Herkimer County", "Niagara County", "Putnam County"],
   z: dataArr,
-  geojson: "counties.GeoJSON"
-
+  zmin: 0,
+  zmax: 200000,
+  colorbar: {y: 0, yanchor: "bottom", title: {text:"Crime rates in NY counties"}}
 }];
 
-var layout = {mapbox: {center: {lon: -74, lat: 43}, zoom: 3.5},
+var layout = {mapbox: {center: {lon: -76, lat: 42}, zoom: 4.6},
               width: 600, height:400};
 
 var config = {mapboxAccessToken: "pk.eyJ1Ijoibmlja3JvYmIiLCJhIjoiY2xiNGdxaXMxMDY0ODNvbWtob2s4eTljMSJ9.Rq3u5EkXTlspNVbucQIdcQ"};

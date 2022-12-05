@@ -21,7 +21,7 @@ for(let i = 1; i < prec.length; i++){
   }
 }
 
-for(let i = 0; i < counties.length; i++){
+for(let i = 0; i < counties.length-1; i++){
     countyTotal[counties[i]] = {
     "2017":{
       // "Agency":"",
