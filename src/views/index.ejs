@@ -43,6 +43,7 @@
         width: 1050,
         height:480
       },
+      type: 'bar',
       padding: {
         left:20,
         right:20,
@@ -54,13 +55,19 @@
       data: {
 
         columns: [
-          // ['Albany', "231", "420", "948"],
-          // ['Allegany', "200", "400", "600"]
-          <%for(county in data){%>
-            if(county != "New York" || county != "St Lawrence"){
-              [<%=county%>, <%=data[county]['indexTotal']%>, <%=data[county]['violentTotal']%>, <%=data[county]['propertyTotal']%> ],
-            <%}%>
-          <%}%>
+          ["Albany",	40462,	5588,	34874],
+          ["Bronx", 180645, 66153,114492],
+          ["New York", 248053, 48386, 199667],
+          ["Erie", 109372, 17550,91822],
+          ["Kings", 249021,73010,1776011],
+          ["Queens",175254,47324,127930],
+          ["Suffolk", 93889,7455,86434],
+          ["Westchester",50613,8351,42262],
+          ["Monroe",82946,11595,71351],
+          ["Nassau",	65588,	8546,	57042]
+
+
+
 
         ]
       },
