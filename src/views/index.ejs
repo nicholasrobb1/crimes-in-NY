@@ -38,29 +38,77 @@
     <div id="chart"></div>
     <script>
 
+//    var chart = c3.generate({
+    //     data: {
+    //         columns: [
+    //
+    //           // <% for (county in names){ %>
+    //             // <%for (countyData in data){%>
+    //
+    //             // [<%=county%>, <%=data[countyData]["indexTotal"]%>, <%=data[countyData]["violentTotal"]%>, <%=data[countyData]["propertyTotal"]%>],
+    //             // <% } %>
+    //           // <% } %>
+    //         ],
+    //         type: 'line'
+    //     },
+    //     bar: {
+    //         // width: {
+    //         //     ratio: 0.5 // this makes bar width 50% of length between ticks
+    //         // },
+    //         padding: {
+    //           left: 50,
+    //           right: 50
+    //         }
+    //         // or
+    //         //width: 100 // this makes bar width 100px
+    //     }
+    // });
     var chart = c3.generate({
-        data: {
-            columns: [
-              <% for (county in names){ %>
-                <%for (countyData in data){%>
-                [<%=county%>, <%=data[countyData]["indexTotal"]%>, <%=data[countyData]["violentTotal"]%>, <%=data[countyData]["propertyTotal"]%>],
-                <% } %>
-              <% } %>
-            ],
-            type: 'line'
+      bindto: '#chart',
+      size: {
+        width: 1050,
+        height:480
+      },
+      padding: {
+        left:20,
+        right:20,
+        top:20
+      },
+      title: {
+        text: 'Crime Totals in New York Counties'
+      },
+      data: {
+        x: 'x',
+        columns: [
+          ['x', "Index Total", "Violent Total", "propertyTotal"],
+          <%for(county in data){%>
+            [<%=county%>, <%=county["indexTotal"]%>, <%county["violentTotal"]%>, <%county["propertyTotal"]%>
+          <%}%>
+        ]
+      },
+        padding: {
+          left: 50,
+          right: 50
+      },
+
+      axis: {
+        x: {
+          label: {
+            text: 'Totals',
+            position: 'middle'
+          }
         },
-        bar: {
-            // width: {
-            //     ratio: 0.5 // this makes bar width 50% of length between ticks
-            // },
-            padding: {
-              left: 50,
-              right: 50
-            }
-            // or
-            //width: 100 // this makes bar width 100px
+        y: {
+          show: true,
+          label: {
+            text: 'Value',
+            position: 'outer-middle'
+          }
         }
+      }
+
     });
+  </script>
 
 
     </script>
