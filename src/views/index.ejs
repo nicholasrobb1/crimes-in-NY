@@ -37,33 +37,66 @@
   <section>
     <div id="chart"></div>
     <script>
-
     var chart = c3.generate({
-        data: {
-            columns: [
-              <% for (county in names){ %>
-                <%for (countyData in data){%>
-                [<%=county%>, <%=data[countyData]["indexTotal"]%>, <%=data[countyData]["violentTotal"]%>, <%=data[countyData]["propertyTotal"]%>],
-                <% } %>
-              <% } %>
-            ],
-            type: 'line'
+      bindto: '#chart',
+      size: {
+        width: 1050,
+        height:480
+      },
+      type: 'bar',
+      padding: {
+        left:20,
+        right:20,
+        top:20
+      },
+      title: {
+        text: 'Crime Totals in New York Counties'
+      },
+      data: {
+
+        columns: [
+          ["Albany",	40462,	5588,	34874],
+          ["Bronx", 180645, 66153,114492],
+          ["New York", 248053, 48386, 199667],
+          ["Erie", 109372, 17550,91822],
+          ["Kings", 249021,73010,1776011],
+          ["Queens",175254,47324,127930],
+          ["Suffolk", 93889,7455,86434],
+          ["Westchester",50613,8351,42262],
+          ["Monroe",82946,11595,71351],
+          ["Nassau",	65588,	8546,	57042]
+
+
+
+
+        ]
+      },
+        padding: {
+          left: 50,
+          right: 50
+      },
+
+      axis: {
+        x: {
+          type: 'category',
+          categories: ['Index Total', 'Violent Total', 'Property Total'],
+
+          label: {
+            text: 'Totals',
+            position: 'middle'
+          }
         },
-        bar: {
-            // width: {
-            //     ratio: 0.5 // this makes bar width 50% of length between ticks
-            // },
-            padding: {
-              left: 50,
-              right: 50
-            }
-            // or
-            //width: 100 // this makes bar width 100px
+        y: {
+          show: true,
+          label: {
+            text: 'Value',
+            position: 'outer-middle'
+          }
         }
+      }
+
     });
-
-
-    </script>
+  </script>
   </section>
 
 
