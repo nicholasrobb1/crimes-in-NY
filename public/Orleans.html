@@ -71,7 +71,7 @@
           
             <li><a class="dropdown-item" href="Nassau.html">Nassau</a></li>
           
-            <li><a class="dropdown-item" href="New York.html">New York</a></li>
+            <li><a class="dropdown-item" href="New_York.html">New York</a></li>
           
             <li><a class="dropdown-item" href="Niagara.html">Niagara</a></li>
           
@@ -111,7 +111,7 @@
           
             <li><a class="dropdown-item" href="Steuben.html">Steuben</a></li>
           
-            <li><a class="dropdown-item" href="St Lawrence.html">St Lawrence</a></li>
+            <li><a class="dropdown-item" href="St_Lawrence.html">St Lawrence</a></li>
           
             <li><a class="dropdown-item" href="Suffolk.html">Suffolk</a></li>
           
@@ -171,17 +171,17 @@
     <h2>Crime statistics in Orleans county</h2>
     <table>
       <thead>
-        <th> Year </th>
-        <th> Index Total </th>
-        <th> Violent Total </th>
-        <th> Murder </th>
-        <th> Rape </th>
-        <th> Robbery </th>
-        <th> Aggravated Assault </th>
-        <th> Property Total </th>
-        <th> Burglary </th>
-        <th> Larceny </th>
-        <th> Motor Vehicle Theft </th>
+        <th class="table-header"> Year </th>
+        <th class="table-header"> Index Total </th>
+        <th class="table-header"> Violent Total </th>
+        <th class="table-header"> Murder </th>
+        <th class="table-header"> Rape </th>
+        <th class="table-header"> Robbery </th>
+        <th class="table-header"> Aggravated Assault </th>
+        <th class="table-header"> Property Total </th>
+        <th class="table-header"> Burglary </th>
+        <th class="table-header"> Larceny </th>
+        <th class="table-header"> Motor Vehicle Theft </th>
       </thead>
       <tbody>
         
@@ -328,6 +328,18 @@
 
       var chart = c3.generate({
         bindto: '#chart',
+        size: {
+          width: 1050,
+          height:480
+        },
+        padding: {
+          left:20,
+          right:20,
+          top:20
+        },
+        title: {
+          text: 'Crimes in Orleans in the last 5 Years'
+        },
         data: {
           x: 'x',
           columns: [
@@ -363,6 +375,7 @@
             }
           }
         }
+
       });
     </script>
   </section>
