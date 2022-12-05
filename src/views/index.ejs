@@ -57,7 +57,10 @@
           // ['Albany', "231", "420", "948"],
           // ['Allegany', "200", "400", "600"]
           <%for(county in data){%>
-            [''+<%=county%>+'', <%=data[county]['indexTotal']%>, <%=data[county]['violentTotal']%>, <%=data[county]['propertyTotal']%> ],
+            <% let countyNoSpace = toString(county.split(" ").join("_"))%>
+            if(county == "New York" || county == "St Lawrence"){
+              // [<%=countyNoSpace%>, <%=data[county]['indexTotal']%>, <%=data[county]['violentTotal']%>, <%=data[county]['propertyTotal']%> ],
+            <%}%>
           <%}%>
 
         ]

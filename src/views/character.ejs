@@ -63,11 +63,16 @@
     </table>
   </section>
 
-<div>
-  <script>
-    if(stats[2017] > stat[2022])
-  </script>
-<div>
+  <div>
+      <%let trend = false;%>
+      <%if(stats[2017]["indexTotal"] < stats[2022]["indexTotal"]){%>
+        <%trend = true;}%>
+      <%if(trend == true){%>
+        <p>The total amount of crime in <%=name%> has gone down in the last 5 years!</p>
+      <%} else {%>
+        <p>The total amount of crime in <%=name%> has increased in the last five years :(</p>
+      <%}%>
+    <div>
 
   <section>
     <div id="chart"></div>
