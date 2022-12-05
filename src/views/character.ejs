@@ -64,13 +64,11 @@
   </section>
 
   <div>
-      <%let trend = false;%>
-      <%if(stats[2017]["indexTotal"] < stats[2022]["indexTotal"]){%>
-        <%trend = true;}%>
-      <%if(trend == true){%>
-        <p>The total amount of crime in <%=name%> has gone down in the last 5 years!</p>
+
+      <%if(stateAvg["indexTotal"] > stats["indexTotal"]/5){%>
+        <p><%=name%> has less total Crime than the State Avg!</p>
       <%} else {%>
-        <p>The total amount of crime in <%=name%> has increased in the last five years :(</p>
+        <p><%=name%> has more total crime than the State average of <%=stateAvg["indexTotal"]%></p>
       <%}%>
     <div>
 
