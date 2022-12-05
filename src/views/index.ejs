@@ -37,32 +37,6 @@
   <section>
     <div id="chart"></div>
     <script>
-
-//    var chart = c3.generate({
-    //     data: {
-    //         columns: [
-    //
-    //           // <% for (county in names){ %>
-    //             // <%for (countyData in data){%>
-    //
-    //             // [<%=county%>, <%=data[countyData]["indexTotal"]%>, <%=data[countyData]["violentTotal"]%>, <%=data[countyData]["propertyTotal"]%>],
-    //             // <% } %>
-    //           // <% } %>
-    //         ],
-    //         type: 'line'
-    //     },
-    //     bar: {
-    //         // width: {
-    //         //     ratio: 0.5 // this makes bar width 50% of length between ticks
-    //         // },
-    //         padding: {
-    //           left: 50,
-    //           right: 50
-    //         }
-    //         // or
-    //         //width: 100 // this makes bar width 100px
-    //     }
-    // });
     var chart = c3.generate({
       bindto: '#chart',
       size: {
@@ -78,11 +52,13 @@
         text: 'Crime Totals in New York Counties'
       },
       data: {
-        x: 'x',
+
         columns: [
-          ['x', "Index Total", "Violent Total", "propertyTotal"],
           // ['Albany', "231", "420", "948"],
           // ['Allegany', "200", "400", "600"]
+          <%for(county in data){%>
+            [''+<%=county%>+'', <%=data[county]['indexTotal']%>, <%=data[county]['violentTotal']%>, <%=data[county]['propertyTotal']%> ],
+          <%}%>
 
         ]
       },
@@ -93,6 +69,9 @@
 
       axis: {
         x: {
+          type: 'category',
+          categories: ['Index Total', 'Violent Total', 'Property Total'],
+
           label: {
             text: 'Totals',
             position: 'middle'
