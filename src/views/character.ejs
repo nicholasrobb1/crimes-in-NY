@@ -64,12 +64,7 @@
   </section>
 
   <div>
-
-      <%if(stateAvg["indexTotal"] > stats["indexTotal"]/5){%>
-        <p><%=name%> has less total Crime than the State Avg!</p>
-      <%} else {%>
-        <p><%=name%> has more total crime than the State average of <%=stateAvg["indexTotal"]%></p>
-      <%}%>
+    <%=name%> has <%=stats["indexTotal"]%> total crimes compared to the State average of <%=stateAvg["indexTotal"]%>
     <div>
 
   <section>
