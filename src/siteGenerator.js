@@ -15,25 +15,27 @@ let about_template = fs.readFileSync('views/about.ejs', 'utf8');
     countyName.push(county);
     // countyName.push(getBetterFileName(county));
   }
-  // console.log(countyName)
+  console.log(countyName)
 
-  // let headerEJS = ejs.render(header_template, {
-  //   data:countyName
-  // })
-  //
-  // fs.writeFileSync('views/global/navbar.html', headerEJS, 'utf8');
-
-
+  // console.log(county_info);
 for (county in county_info){
-  console.log("render character template");
+  // console.log("render character template");
+  // console.log("county = " + county);
+  // console.log(county_info[county]);
+  let county2 = county+"";
   let county_html = ejs.render(county_template, {
     filename: __dirname + '/views/character.ejs',
     stats: county_info[county],
     stateAvg: stateAvg(county_info),
     names: countyName,
-    name: county
+    name: county2
   });
+  county = county2;
+  // console.log("county Post = " + county);
+  // console.log(county_info[county]);
   county_info[county].link = getBetterFileName(county);
+  // console.log(getBetterFileName(county));
+  // console.log("filename = " + county_info[county].link);
   fs.writeFileSync('../public/'+county_info[county].link+'.html', county_html, 'utf8');
 
 }
@@ -95,14 +97,14 @@ function stateAvg(countyData){
   for(category in avg){
     avg[category] = parseInt(avg[category]/count);
   }
-  console.log(avg);
+  // console.log(avg);
   return avg
 }//end stateAvg
 
 function totalInCategory(countyData, county, category){
   let catTot = 0;
   for(year in countyData[county]){
-    catTot += countyData[county][year][category];
+    catTot += parseInt(countyData[county][year][category]);
   }
 
   return catTot;
