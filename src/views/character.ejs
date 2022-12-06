@@ -63,6 +63,15 @@
     </table>
   </section>
 
+  <div>
+
+      <%if(stateAvg["indexTotal"] > stats["indexTotal"]/5){%>
+        <p><%=name%> has less total Crime than the State Avg!</p>
+      <%} else {%>
+        <p><%=name%> has more total crime than the State average of <%=stateAvg["indexTotal"]%></p>
+      <%}%>
+    <div>
+
   <section>
     <div id="chart"></div>
     <script>
@@ -143,7 +152,8 @@
       });
     </script>
   </section>
-
+  <p class="bottom-text"> You can click on any of the data sets here in the key to remove them from the graph!<p>
+  <p class="bottom-text"> Or hover over them to highlight them within the graph!<p>
   <%- include ('global/footer');  %>
 
 </body>

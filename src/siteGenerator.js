@@ -29,6 +29,7 @@ for (county in county_info){
   let county_html = ejs.render(county_template, {
     filename: __dirname + '/views/character.ejs',
     stats: county_info[county],
+    stateAvg: stateAvg(county_info),
     names: countyName,
     name: county
   });
@@ -43,6 +44,7 @@ for (county in county_info){
 let index_html = ejs.render(index_template, {
   filename: __dirname + '/views/index.ejs',
   names: countyName,
+  stateAvg: stateAvg(county_info),
   data: county_info
 });
 
@@ -60,4 +62,48 @@ function getBetterFileName(countyName){
   betterFileName = betterFileName.split("(").join("");
   betterFileName = betterFileName.split(")").join("");
   return betterFileName;
+}
+
+
+function stateAvg(countyData){
+  let avg = {
+    "indexTotal":0,
+    "violentTotal":0,
+    "murder":0,
+    "rape":0,
+    "robbery":0,
+    "aggravatedAssault":0,
+    "propertyTotal":0,
+    "burglary":0,
+    "larceny":0,
+    "motorVehicleTheft": 0
+  }
+  let count = 0;
+  for(county in countyData){
+    count++;
+    avg["indexTotal"] = parseInt(avg["indexTotal"]) + parseInt(county["indexTotal"]);
+    avg["violentTotal"] = parseInt(avg["violentTotal"]) + parseInt(county["violentTotal"]);
+    avg["murder"] = parseInt(avg["murder"]) + parseInt(totalInCategory(countyData, county, "murder"));
+    avg["rape"] = parseInt(avg["rape"]) + parseInt(totalInCategory(countyData, county, "rape"));
+    avg["robbery"] = parseInt(avg["robbery"]) + parseInt(totalInCategory(countyData, county, "robbery"));
+    avg["aggravatedAssault"] = parseInt(avg["aggravatedAssault"]) + parseInt(totalInCategory(countyData, county, "aggravatedAssault"));
+    avg["propertyTotal"] = parseInt(avg["propertyTotal"]) + parseInt(county["propertyTotal"]);
+    avg["burglary"] = parseInt(avg["burglary"]) + parseInt(totalInCategory(countyData, county, "burglary"));
+    avg["larceny"] = parseInt(avg["larceny"]) + parseInt(totalInCategory(countyData, county, "larceny"));
+    avg["motorVehicleTheft"] = parseInt(avg["motorVehicleTheft"]) + parseInt(totalInCategory(countyData, county, "motorVehicleTheft"));
+  }
+  for(category in avg){
+    avg[category] = parseInt(avg[category]/count);
+  }
+  console.log(avg);
+  return avg
+}//end stateAvg
+
+function totalInCategory(countyData, county, category){
+  let catTot = 0;
+  for(year in countyData[county]){
+    catTot += countyData[county][year][category];
+  }
+
+  return catTot;
 }
