@@ -16,7 +16,7 @@ let about_template = fs.readFileSync('views/about.ejs', 'utf8');
     // countyName.push(getBetterFileName(county));
   }
   console.log(countyName)
-
+  stateAvg(county_info);
   // console.log(county_info);
 for (county in county_info){
   // console.log("render character template");
@@ -80,31 +80,33 @@ function stateAvg(countyData){
     "larceny":0,
     "motorVehicleTheft": 0
   }
+
+
   let count = 0;
   for(county in countyData){
     count++;
-    avg["indexTotal"] = parseInt(avg["indexTotal"]) + parseInt(county["indexTotal"]);
-    avg["violentTotal"] = parseInt(avg["violentTotal"]) + parseInt(county["violentTotal"]);
-    avg["murder"] = parseInt(avg["murder"]) + parseInt(totalInCategory(countyData, county, "murder"));
-    avg["rape"] = parseInt(avg["rape"]) + parseInt(totalInCategory(countyData, county, "rape"));
-    avg["robbery"] = parseInt(avg["robbery"]) + parseInt(totalInCategory(countyData, county, "robbery"));
-    avg["aggravatedAssault"] = parseInt(avg["aggravatedAssault"]) + parseInt(totalInCategory(countyData, county, "aggravatedAssault"));
-    avg["propertyTotal"] = parseInt(avg["propertyTotal"]) + parseInt(county["propertyTotal"]);
-    avg["burglary"] = parseInt(avg["burglary"]) + parseInt(totalInCategory(countyData, county, "burglary"));
-    avg["larceny"] = parseInt(avg["larceny"]) + parseInt(totalInCategory(countyData, county, "larceny"));
-    avg["motorVehicleTheft"] = parseInt(avg["motorVehicleTheft"]) + parseInt(totalInCategory(countyData, county, "motorVehicleTheft"));
+    let county2 = county;
+    avg.indexTotal = parseInt(avg["indexTotal"]) + parseInt(countyData[county2]["indexTotal"]);
+    avg.violentTotal = parseInt(avg["violentTotal"]) + parseInt(countyData[county2]["violentTotal"]);
+    avg.murder = parseInt(avg["murder"]) + parseInt(totalInCategory(countyData, county2, "murder"));
+    avg.rape = parseInt(avg["rape"]) + parseInt(totalInCategory(countyData, county2, "rape"));
+    avg.robbery = parseInt(avg["robbery"]) + parseInt(totalInCategory(countyData, county2, "robbery"));
+    avg.aggravatedAssault = parseInt(avg["aggravatedAssault"]) + parseInt(totalInCategory(countyData, county2, "aggravatedAssault"));
+    avg.propertyTotal = parseInt(avg["propertyTotal"]) + parseInt(countyData[county2]["propertyTotal"]);
+    avg.burglary = parseInt(avg["burglary"]) + parseInt(totalInCategory(countyData, county2, "burglary"));
+    avg.larceny = parseInt(avg["larceny"]) + parseInt(totalInCategory(countyData, county2, "larceny"));
+    avg.motorVehicleTheft = parseInt(avg["motorVehicleTheft"]) + parseInt(totalInCategory(countyData, county2, "motorVehicleTheft"));
   }
   for(category in avg){
     avg[category] = parseInt(avg[category]/count);
   }
-  // console.log(avg);
   return avg
 }//end stateAvg
 
 function totalInCategory(countyData, county, category){
   let catTot = 0;
-  for(year in countyData[county]){
-    catTot += parseInt(countyData[county][year][category]);
+  for(let i = 2017; i < 2022; i++){
+    catTot += parseInt(countyData[county][i][category]);
   }
 
   return catTot;
