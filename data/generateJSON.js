@@ -88,18 +88,39 @@ for(let i = 0; i < counties.length-1; i++){
       "larceny":0,
       "motorVehicleTheft": 0
     },
+    "avg":{
+      "indexTotal":0,
+      "violentTotal":0,
+      "murder":0,
+      "rape":0,
+      "robbery":0,
+      "aggravatedAssault":0,
+      "propertyTotal":0,
+      "burglary":0,
+      "larceny":0,
+      "motorVehicleTheft": 0
+    },
     "indexTotal":0,
     "violentTotal":0,
     "propertyTotal":0
   }
 }
 
+let genAvg ={
+  "indexTotal":0,
+  "violentTotal":0,
+  "murder":0,
+  "rape":0,
+  "robbery":0,
+  "aggravatedAssault":0,
+  "propertyTotal":0,
+  "burglary":0,
+  "larceny":0,
+  "motorVehicleTheft": 0
+}
 for(let i = 1; i < prec.length-1; i++){
   let county = prec[i].split(',');
 
-  // console.log(county);
-  // console.log("second value = " + county[2])
-  // console.log("i = " + i);
 
   if(county[1] == "County Total"){
     let year = countyTotal[county[0]][county[2]];
@@ -115,6 +136,34 @@ for(let i = 1; i < prec.length-1; i++){
     year.burglary = parseInt(year.burglary)+ parseInt(county[crimeDict["burglary"]]);
     year.larceny = parseInt(year.larceny)+ parseInt(county[crimeDict["larceny"]]);
     year.motorVehicleTheft = parseInt(year.motorVehicleTheft)+ parseInt(county[crimeDict["motorVehicleTheft"]]);
+
+    genAvg.indexTotal = parseInt(genAvg.indexTotal)+ parseInt(county[crimeDict["indexTotal"]]);
+    genAvg.violentTotal = parseInt(genAvg.violentTotal)+ parseInt(county[crimeDict["violentTotal"]]);
+    genAvg.murder = parseInt(genAvg.murder)+ parseInt(county[crimeDict["murder"]]);
+    genAvg.rape = parseInt(genAvg.rape)+ parseInt(county[crimeDict["rape"]]);
+    genAvg.robbery = parseInt(genAvg.robbery)+ parseInt(county[crimeDict["robbery"]]);
+    genAvg.aggravatedAssault = parseInt(genAvg.aggravatedAssault)+ parseInt(county[crimeDict["aggravatedAssault"]]);
+    genAvg.propertyTotal = parseInt(genAvg.propertyTotal)+ parseInt(county[crimeDict["propertyTotal"]]);
+    genAvg.burglary = parseInt(genAvg.burglary)+ parseInt(county[crimeDict["burglary"]]);
+    genAvg.larceny = parseInt(genAvg.larceny)+ parseInt(county[crimeDict["larceny"]]);
+    genAvg.motorVehicleTheft = parseInt(genAvg.motorVehicleTheft)+ parseInt(county[crimeDict["motorVehicleTheft"]]);
+
+    if(county[2] == 2021){
+      genAvg.indexTotal = parseInt(genAvg.indexTotal/5);
+      genAvg.violentTotal = parseInt(genAvg.violentTotal/5);
+      genAvg.murder = parseInt(genAvg.murder/5);
+      genAvg.rape = parseInt(genAvg.rape/5);
+      genAvg.robbery = parseInt(genAvg.robbery/5);
+      genAvg.aggravatedAssault = parseInt(genAvg.aggravatedAssault/5);
+      genAvg.propertyTotal = parseInt(genAvg.propertyTotal/5);
+      genAvg.burglary = parseInt(genAvg.burglary/5);
+      genAvg.larceny = parseInt(genAvg.larceny/5);
+      genAvg.motorVehicleTheft = parseInt(genAvg.motorVehicleTheft/5);
+
+      console.log(genAvg);
+      countyTotal[county[0]]["avg"] = genAvg;
+    }
+
 
     countyTotal[county[0]][county[2]] = year;
   }

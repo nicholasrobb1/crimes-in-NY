@@ -15,13 +15,11 @@ let about_template = fs.readFileSync('views/about.ejs', 'utf8');
     countyName.push(county);
     // countyName.push(getBetterFileName(county));
   }
-  console.log(countyName)
+
+  // console.log(countyName)
   stateAvg(county_info);
-  // console.log(county_info);
 for (county in county_info){
-  // console.log("render character template");
-  // console.log("county = " + county);
-  // console.log(county_info[county]);
+
   let county2 = county+"";
   let county_html = ejs.render(county_template, {
     filename: __dirname + '/views/character.ejs',

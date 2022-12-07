@@ -259,12 +259,10 @@
     </table>
   </section>
 
-  <div>
-    Montgomery has 3776 total crimes compared to the State average of 28008
-    <div>
+
 
   <section>
-    <div id="chart"></div>
+    <div id="chart1"></div>
     <script>
 
     //let vt = ["Violent Total"];
@@ -331,7 +329,7 @@
     
 
       var chart = c3.generate({
-        bindto: '#chart',
+        bindto: '#chart1',
         size: {
           width: 1050,
           height:480
@@ -385,6 +383,44 @@
   </section>
   <p class="bottom-text"> You can click on any of the data sets here in the key to remove them from the graph!<p>
   <p class="bottom-text"> Or hover over them to highlight them within the graph!<p>
+
+    <div>
+      Montgomery has 3776 total crimes compared to the State average of 28008 total Crimes in the last 5 Years
+      <div>
+        <section>
+          <div id="chart2"></div>
+          <script>
+
+
+            var compChart = c3.generate({
+              bindto:'#chart2',
+              data: {
+                  columns: [
+                    ['State Avg', 55, 510, 1482, 3696, 2470, 1302],
+                    ["Montgomery", 0, 3, 1, 6, 13, 8]
+                  ],
+                  type: 'bar',
+                  groups: [
+                      ['State Avg', "Montgomery"]
+                  ]
+              },
+              grid: {
+                  y: {
+                      lines: [{value:0}]
+                  }
+              },
+              axis: {
+                x: {
+                  type:"category",
+                  categories: ['Murder', 'Rape', 'Robbery', "Aggravated Assault", "Burglary", "Motor Vehicle Theft"],
+                }
+              }
+            });
+          </script>
+        </section>
+
+
+
   <footer>
   This is my awesome, dynamically inserted footer! Data from <a href="https://data.ny.gov/Public-Safety/Index-Crimes-by-County-and-Agency-Beginning-1990/ca8h-8gjq" target="_blank"> NYC Data.Gov - Crimes by County and Agency</a>
 </footer>

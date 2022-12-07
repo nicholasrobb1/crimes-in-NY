@@ -63,12 +63,10 @@
     </table>
   </section>
 
-  <div>
-    <%=name%> has <%=stats["indexTotal"]%> total crimes compared to the State average of <%=stateAvg["indexTotal"]%>
-    <div>
+
 
   <section>
-    <div id="chart"></div>
+    <div id="chart1"></div>
     <script>
 
     //let vt = ["Violent Total"];
@@ -95,7 +93,7 @@
     <%}%>
 
       var chart = c3.generate({
-        bindto: '#chart',
+        bindto: '#chart1',
         size: {
           width: 1050,
           height:480
@@ -149,6 +147,44 @@
   </section>
   <p class="bottom-text"> You can click on any of the data sets here in the key to remove them from the graph!<p>
   <p class="bottom-text"> Or hover over them to highlight them within the graph!<p>
+
+    <div>
+      <%=name%> has <%=stats["indexTotal"]%> total crimes compared to the State average of <%=stateAvg["indexTotal"]%> total Crimes in the last 5 Years
+      <div>
+        <section>
+          <div id="chart2"></div>
+          <script>
+
+
+            var compChart = c3.generate({
+              bindto:'#chart2',
+              data: {
+                  columns: [
+                    ['State Avg', <%=stateAvg["murder"]%>, <%=stateAvg["rape"]%>, <%=stateAvg["robbery"]%>, <%=stateAvg["aggravatedAssault"]%>, <%=stateAvg["burglary"]%>, <%=stateAvg["motorVehicleTheft"]%>],
+                    ["<%=name%>", <%=stats["avg"]["murder"]%>, <%=stats["avg"]["rape"]%>, <%=stats["avg"]["robbery"]%>, <%=stats["avg"]["aggravatedAssault"]%>, <%=stats["avg"]["burglary"]%>, <%=stats["avg"]["motorVehicleTheft"]%>]
+                  ],
+                  type: 'bar',
+                  groups: [
+                      ['State Avg', "<%=name%>"]
+                  ]
+              },
+              grid: {
+                  y: {
+                      lines: [{value:0}]
+                  }
+              },
+              axis: {
+                x: {
+                  type:"category",
+                  categories: ['Murder', 'Rape', 'Robbery', "Aggravated Assault", "Burglary", "Motor Vehicle Theft"],
+                }
+              }
+            });
+          </script>
+        </section>
+
+
+
   <%- include ('global/footer');  %>
 
 </body>
