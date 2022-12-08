@@ -59,7 +59,21 @@
           <td><%= stats[i]["motorVehicleTheft"] %></td>
         </tr>
         <%} %>
-      </tbody>
+        <!-- <tr>
+          <td>Trends!</td>
+          <td><% if(stats[2022]["indexTotal"] > stats[2017]["indexTotal"]){} %></td>
+          <td><%= stats[i]["violentTotal"] %></td>
+          <td><%= stats[i]["murder"] %></td>
+          <td><%= stats[i]["rape"] %></td>
+          <td><%= stats[i]["robbery"] %></td>
+          <td><%= stats[i]["aggravatedAssault"] %></td>
+          <td><%= stats[i]["propertyTotal"] %></td>
+          <td><%= stats[i]["burglary"] %></td>
+          <td><%= stats[i]["larceny"] %></td>
+          <td><%= stats[i]["motorVehicleTheft"] %></td> -->
+
+        <!-- </tr> -->
+      <!-- </tbody> -->
     </table>
   </section>
 
@@ -173,11 +187,14 @@
                       lines: [{value:0}]
                   }
               },
+              title:{
+                text:"Avergae Crimes in comparison to the State Average"
+              },
               axis: {
                 x: {
                   type:"category",
                   categories: ['Murder', 'Rape', 'Robbery', "Aggravated Assault", "Burglary", "Motor Vehicle Theft"],
-                }
+                },
               }
             });
           </script>
