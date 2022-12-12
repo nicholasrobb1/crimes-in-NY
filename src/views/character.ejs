@@ -59,21 +59,18 @@
           <td><%= stats[i]["motorVehicleTheft"] %></td>
         </tr>
         <%} %>
-        <!-- <tr>
+        <tr>
           <td>Trends!</td>
-          <td><% if(stats[2022]["indexTotal"] > stats[2017]["indexTotal"]){} %></td>
-          <td><%= stats[i]["violentTotal"] %></td>
-          <td><%= stats[i]["murder"] %></td>
-          <td><%= stats[i]["rape"] %></td>
-          <td><%= stats[i]["robbery"] %></td>
-          <td><%= stats[i]["aggravatedAssault"] %></td>
-          <td><%= stats[i]["propertyTotal"] %></td>
-          <td><%= stats[i]["burglary"] %></td>
-          <td><%= stats[i]["larceny"] %></td>
-          <td><%= stats[i]["motorVehicleTheft"] %></td> -->
-
-        <!-- </tr> -->
-      <!-- </tbody> -->
+          <%for(category in stats['2017']){%>
+            <%let trend = category + " has decreased :)"%>
+            <%if(parseInt(stats['2021'][category]) > parseInt(stats['2017'][category])){%>
+              <%trend = category + " has increased :("%>
+            <%} if(parseInt(stats['2021'][category]) == parseInt(stats['2017'][category])){%>
+              <%trend = category+" roughly the same";%>
+              <%}%>
+              <td><%=trend%></td>
+          <%}%>
+        </tr>
     </table>
   </section>
 
@@ -165,6 +162,7 @@
     <div>
       <%=name%> has <%=stats["indexTotal"]%> total crimes compared to the State average of <%=stateAvg["indexTotal"]%> total Crimes in the last 5 Years
       <div>
+        
         <section>
           <div id="chart2"></div>
           <script>
