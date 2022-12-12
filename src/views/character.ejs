@@ -59,12 +59,28 @@
           <td><%= stats[i]["motorVehicleTheft"] %></td>
         </tr>
         <%} %>
-      </tbody>
+        <!-- <tr>
+          <td>Trends!</td>
+          <td><% if(stats[2022]["indexTotal"] > stats[2017]["indexTotal"]){} %></td>
+          <td><%= stats[i]["violentTotal"] %></td>
+          <td><%= stats[i]["murder"] %></td>
+          <td><%= stats[i]["rape"] %></td>
+          <td><%= stats[i]["robbery"] %></td>
+          <td><%= stats[i]["aggravatedAssault"] %></td>
+          <td><%= stats[i]["propertyTotal"] %></td>
+          <td><%= stats[i]["burglary"] %></td>
+          <td><%= stats[i]["larceny"] %></td>
+          <td><%= stats[i]["motorVehicleTheft"] %></td> -->
+
+        <!-- </tr> -->
+      <!-- </tbody> -->
     </table>
   </section>
 
+
+
   <section>
-    <div id="chart"></div>
+    <div id="chart1"></div>
     <script>
 
     //let vt = ["Violent Total"];
@@ -91,7 +107,7 @@
     <%}%>
 
       var chart = c3.generate({
-        bindto: '#chart',
+        bindto: '#chart1',
         size: {
           width: 1050,
           height:480
@@ -143,6 +159,48 @@
       });
     </script>
   </section>
+  <p class="bottom-text"> You can click on any of the data sets here in the key to remove them from the graph!<p>
+  <p class="bottom-text"> Or hover over them to highlight them within the graph!<p>
+
+    <div>
+      <%=name%> has <%=stats["indexTotal"]%> total crimes compared to the State average of <%=stateAvg["indexTotal"]%> total Crimes in the last 5 Years
+      <div>
+        <section>
+          <div id="chart2"></div>
+          <script>
+
+
+            var compChart = c3.generate({
+              bindto:'#chart2',
+              data: {
+                  columns: [
+                    ['State Avg', <%=stateAvg["murder"]%>, <%=stateAvg["rape"]%>, <%=stateAvg["robbery"]%>, <%=stateAvg["aggravatedAssault"]%>, <%=stateAvg["burglary"]%>, <%=stateAvg["motorVehicleTheft"]%>],
+                    ["<%=name%>", <%=stats["avg"]["murder"]%>, <%=stats["avg"]["rape"]%>, <%=stats["avg"]["robbery"]%>, <%=stats["avg"]["aggravatedAssault"]%>, <%=stats["avg"]["burglary"]%>, <%=stats["avg"]["motorVehicleTheft"]%>]
+                  ],
+                  type: 'bar',
+                  groups: [
+                      ['State Avg', "<%=name%>"]
+                  ]
+              },
+              grid: {
+                  y: {
+                      lines: [{value:0}]
+                  }
+              },
+              title:{
+                text:"Avergae Crimes in comparison to the State Average"
+              },
+              axis: {
+                x: {
+                  type:"category",
+                  categories: ['Murder', 'Rape', 'Robbery', "Aggravated Assault", "Burglary", "Motor Vehicle Theft"],
+                },
+              }
+            });
+          </script>
+        </section>
+
+
 
   <%- include ('global/footer');  %>
 

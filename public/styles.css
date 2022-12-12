@@ -6,6 +6,10 @@ body {
   background-color: lightgray;
 }
 
+.bottom-text{
+  text-align: left-center;
+}
+
 .table-header {
   padding: 5px;
 }

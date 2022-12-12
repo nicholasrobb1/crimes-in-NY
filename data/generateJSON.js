@@ -88,18 +88,28 @@ for(let i = 0; i < counties.length-1; i++){
       "larceny":0,
       "motorVehicleTheft": 0
     },
+    "avg":{
+      "indexTotal":0,
+      "violentTotal":0,
+      "murder":0,
+      "rape":0,
+      "robbery":0,
+      "aggravatedAssault":0,
+      "propertyTotal":0,
+      "burglary":0,
+      "larceny":0,
+      "motorVehicleTheft": 0
+    },
     "indexTotal":0,
     "violentTotal":0,
     "propertyTotal":0
   }
 }
 
+
 for(let i = 1; i < prec.length-1; i++){
   let county = prec[i].split(',');
 
-  // console.log(county);
-  // console.log("second value = " + county[2])
-  // console.log("i = " + i);
 
   if(county[1] == "County Total"){
     let year = countyTotal[county[0]][county[2]];
@@ -124,15 +134,48 @@ for(county in countyTotal){
   let iT = 0;
   let vT = 0;
   let pT = 0;
-    for(let i = 2017; i < 2022; i++){
+  let genAvg ={
+    "indexTotal":0,
+    "violentTotal":0,
+    "murder":0,
+    "rape":0,
+    "robbery":0,
+    "aggravatedAssault":0,
+    "propertyTotal":0,
+    "burglary":0,
+    "larceny":0,
+    "motorVehicleTheft": 0
+  }
+  for(let i = 2017; i < 2022; i++){
     iT += countyTotal[county][i.toString()].indexTotal
     vT += countyTotal[county][i.toString()].violentTotal
     pT += countyTotal[county][i.toString()].propertyTotal
+    genAvg.indexTotal = parseInt(genAvg.indexTotal)+ parseInt(countyTotal[county][i.toString()]["indexTotal"]);
+    genAvg.violentTotal = parseInt(genAvg.violentTotal)+ parseInt(countyTotal[county][i.toString()]["violentTotal"]);
+    genAvg.murder = parseInt(genAvg.murder)+ parseInt(countyTotal[county][i.toString()]["murder"]);
+    genAvg.rape = parseInt(genAvg.rape)+ parseInt(countyTotal[county][i.toString()]["rape"]);
+    genAvg.robbery = parseInt(genAvg.robbery)+ parseInt(countyTotal[county][i.toString()]["robbery"]);
+    genAvg.aggravatedAssault = parseInt(genAvg.aggravatedAssault)+ parseInt(countyTotal[county][i.toString()]["aggravatedAssault"]);
+    genAvg.propertyTotal = parseInt(genAvg.propertyTotal)+ parseInt(countyTotal[county][i.toString()]["propertyTotal"]);
+    genAvg.burglary = parseInt(genAvg.burglary)+ parseInt(countyTotal[county][i.toString()]["burglary"]);
+    genAvg.larceny = parseInt(genAvg.larceny)+ parseInt(countyTotal[county][i.toString()]["larceny"]);
+    genAvg.motorVehicleTheft = parseInt(genAvg.motorVehicleTheft)+ parseInt(countyTotal[county][i.toString()]["motorVehicleTheft"]);
   }
+  genAvg.indexTotal = parseInt(genAvg.indexTotal/5);
+  genAvg.violentTotal = parseInt(genAvg.violentTotal/5);
+  genAvg.murder = parseInt(genAvg.murder/5);
+  genAvg.rape = parseInt(genAvg.rape/5);
+  genAvg.robbery = parseInt(genAvg.robbery/5);
+  genAvg.aggravatedAssault = parseInt(genAvg.aggravatedAssault/5);
+  genAvg.propertyTotal = parseInt(genAvg.propertyTotal/5);
+  genAvg.burglary = parseInt(genAvg.burglary/5);
+  genAvg.larceny = parseInt(genAvg.larceny/5);
+  genAvg.motorVehicleTheft = parseInt(genAvg.motorVehicleTheft/5);
+
   countyTotal[county].indexTotal = iT;
   countyTotal[county].violentTotal = vT;
   countyTotal[county].propertyTotal = pT;
-
+  countyTotal[county].avg = genAvg;
 }
 
 
